@@ -31,3 +31,17 @@ However, we want to automate this on certain triggers. [lz.n](https://github.com
 I have no idea what 'colorscheme events' refer to here, but everything else in the list is exactly what I'm looking for.
 
 It even has [examples](https://github.com/nvim-neorocks/lz.n#examples) for Nix.
+
+## Modularity
+
+There are two possible routes I could take:
+
+- creating a regular Neovim configuration inside the flake, or
+- splitting them up into modules.
+
+The former would provide more portability (you can use it without Nix), while the latter would provide more modularity (you can toggle sections of the configuration on or off depending on the needs).
+
+I will choose to go down the latter route, as
+
+- it would let me easily load only the necessary parts of the configuration (_e.g._ it is possible to mix-and-match on different devShells), and
+- I'm not sure how I would go about adding an alternative plugin manager for non-Nix uses if I were to go with the former.
