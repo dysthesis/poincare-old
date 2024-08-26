@@ -4,6 +4,14 @@ This documents my research on Neovim and Neovim flakes, and my understanding of 
 
 ## Wrapper
 
+`neovim-unwrapped` provides a barebones Neovim package. We can then wrap them using `neovimUtils.makeNeovimConfig`, which is provided by nixpkgs.
+
+Wrapping involves bundling Neovim with
+
+- its configuration files,
+- plugins, and
+- utilities, such as LSPs, formatters, linters, _etc._
+
 ## Lazy loading
 
 Neovim has a built-in command called `:packadd!` to manually lazy-load plugins.
