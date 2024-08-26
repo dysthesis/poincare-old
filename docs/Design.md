@@ -4,7 +4,9 @@ This documents my research on Neovim and Neovim flakes, and my understanding of 
 
 ## Wrapper
 
-`neovim-unwrapped` provides a barebones Neovim package. We can then wrap them using `neovimUtils.makeNeovimConfig`, which is provided by nixpkgs.
+`neovim-unwrapped` provides a barebones Neovim package.
+
+We can then wrap them using `neovimUtils.makeNeovimConfig`, which is provided by nixpkgs.
 
 Wrapping involves bundling Neovim with
 
