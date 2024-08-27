@@ -11,8 +11,18 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs @ {
+    flake-parts,
+    self,
+    nixpkgs,
+    ...
+  }: let
+    lib = import ./lib inputs.nixpkgs.lib;
+  in
+    flake-parts.lib.mkFlake {
+      inherit inputs;
+      specialArgs = {inherit lib;};
+    } {
       imports = [
         ./flake
       ];
