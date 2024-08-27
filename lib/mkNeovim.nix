@@ -1,5 +1,7 @@
 {
+  neovim-nightly,
   pkgs,
+  nightly ? false,
   withPython3 ? false,
   withRuby ? false,
   withNodeJs ? false,
@@ -12,5 +14,8 @@
       fzf-lua
     ];
   };
+  nvim =  if nightly 
+          then neovim-nightly.packages.${pkgs.system}.default
+          else pkgs.neovim-unwrapped;
 in
-  pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped nvimConfig
+  pkgs.wrapNeovimUnstable nvim nvimConfig
