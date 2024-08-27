@@ -6,13 +6,7 @@
     ...
   }: {
     devShells = {
-      default = self'.devShells.lsp;
-      nvim-nix = pkgs.mkShell {
-          packages = [
-            config.packages.nix
-          ];
-        };
-      lsp = pkgs.mkShell {
+      default = pkgs.mkShell {
         packages = with pkgs; [
           nil
           statix
