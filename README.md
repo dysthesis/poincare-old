@@ -3,6 +3,9 @@
 > [!WARNING]
 > This is still under construction.
 
+> [!WARNING]
+> This is made entirely for personal use, as well as for me to learn Nix. There is no guarantee that things will work for you.
+
 > A flake of chaos.
 
 A modular [Neovim](https://github.com/neovim/neovim) flake.
