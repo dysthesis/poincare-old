@@ -2,6 +2,7 @@ lib:
 lib.extend (final: prev: {
   nvim = {
     configureNvim = import ./configureNvim.nix;
-    mkNvim = import ./mkNvim.nix;
+    dag = import ./dag final;
+    helper = import ./helpers.nix;
   };
 })

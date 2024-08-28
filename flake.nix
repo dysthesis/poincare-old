@@ -9,6 +9,7 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = inputs @ {
@@ -25,6 +26,8 @@
     } {
       imports = [
         ./flake
+        ./modules
+        inputs.treefmt-nix.flakeModule
       ];
       systems = import inputs.systems;
     };
