@@ -1,32 +1,19 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: let
+  inherit (config.vim) nightly;
+in {
   perSystem = {
-    config,
     pkgs,
     lib,
     ...
   }: let
     plugins = with pkgs.vimPlugins; [
       lz-n
-      {
-        plugin = pkgs.vimPlugins.telescope-nvim;
-        config =
-          /*
-          lua
-          */
-          ''
-            require("lz.n").load {
-              "telescope.nvim",
-              keys = {
-                { "<leader>ff", "<CMD>Telescope<CR>", desc = "[F]ind [F]iles" },
-              },
-            }
-          '';
-        type = "lua";
-        optional = true;
-      }
+      telescope-nvim
     ];
-
-    nightly = true;
 
     nvim =
       if nightly
@@ -34,7 +21,9 @@
       else pkgs.neovim-unwrapped;
 
     configuration = lib.nvim.configureNvim {inherit pkgs plugins;};
+
+    nvim-wrapped = pkgs.wrapNeovimUnstable nvim configuration;
   in {
-    packages.default = pkgs.wrapNeovimUnstable nvim configuration;
+    packages.default = nvim-wrapped;
   };
 }
