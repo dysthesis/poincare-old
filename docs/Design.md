@@ -16,7 +16,7 @@ Wrapping involves bundling Neovim with
 
 ## Lazy loading
 
-Neovim has a built-in command called `:packadd!` to manually lazy-load plugins.
+Neovim has a built-in command called `:packadd` to manually lazy-load plugins.
 
 However, we want to automate this on certain triggers. [lz.n](https://github.com/nvim-neorocks/lz.n) is used to achieve this. As per its README, it has:
 
