@@ -2,11 +2,17 @@
 lib: let
   inherit
     (lib)
+    mkOption
     mapAttrs'
     nameValuePair
     removePrefix
     hasPrefix
     filterAttrs
+    ;
+
+  inherit
+    (lib.types)
+    bool
     ;
 in {
   fromInputs = inputs: prefix:
@@ -43,4 +49,19 @@ in {
       (n: _:
         hasPrefix prefix n)
       inputs);
+
+  mkPluginOpt = description: {
+    enable = mkOption {
+      type = bool;
+      default = false;
+      inherit description;
+    };
+    lazy = {
+      enable = mkOption {
+        type = bool;
+        default = false;
+        description = "Whether to lazy load this plugin";
+      };
+    };
+  };
 }

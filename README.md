@@ -1,5 +1,8 @@
 # Poincare
 
+> [!NOTE]
+> Giving up on writing one from scratch in favour of [kickstart-nix.nvim](https://github.com/nix-community/kickstart-nix.nvim) for now, might revisit later.
+
 > [!WARNING]
 > This is still under construction.
 
