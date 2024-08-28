@@ -2,7 +2,7 @@
   inputs,
   config,
   ...
-}:  {
+}: {
   perSystem = {
     pkgs,
     lib,
@@ -13,14 +13,14 @@
       telescope-nvim
     ];
 
-    nvim =
+    package =
       if config.vim.nightly
       then inputs.neovim-nightly.packages.${pkgs.system}.default
       else pkgs.neovim-unwrapped;
 
     configuration = lib.nvim.configureNvim {inherit pkgs plugins;};
 
-    nvim-wrapped = pkgs.wrapNeovimUnstable nvim configuration;
+    nvim-wrapped = pkgs.wrapNeovimUnstable package configuration;
   in {
     packages.default = nvim-wrapped;
   };
