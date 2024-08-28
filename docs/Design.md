@@ -16,6 +16,8 @@ Wrapping involves bundling Neovim with
 
 ## Lazy loading
 
+We want to lazy load plugins whenever appropriate in order to amortise the load times. Individually, plugins only take miliseconds to load. However, when they are all loaded on startup, these startup times add up and becomes more noticeable. Furthermore, since we do not know which plugins will be used by the user whenever Neovim is started up, loading all of the plugins at startup risks incurring unnecessary costs. Lazy loading spreads these startup times out by only loading a plugin when they are needed, and hence keeps these startup times unnoticeable for the average person.
+
 Neovim has a built-in command called `:packadd` to manually lazy-load plugins.
 
 However, we want to automate this on certain triggers. [lz.n](https://github.com/nvim-neorocks/lz.n) is used to achieve this. As per its README, it has:
