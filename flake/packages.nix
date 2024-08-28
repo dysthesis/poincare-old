@@ -2,9 +2,7 @@
   inputs,
   config,
   ...
-}: let
-  inherit (config.vim) nightly;
-in {
+}:  {
   perSystem = {
     pkgs,
     lib,
@@ -16,7 +14,7 @@ in {
     ];
 
     nvim =
-      if nightly
+      if config.vim.nightly
       then inputs.neovim-nightly.packages.${pkgs.system}.default
       else pkgs.neovim-unwrapped;
 
