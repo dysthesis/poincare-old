@@ -1,5 +1,8 @@
 # Poincare
 
+> [!WARNING]
+> This is still under construction.
+
 > A flake of chaos.
 
 A modular [Neovim](https://github.com/neovim/neovim) flake.
